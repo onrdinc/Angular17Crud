@@ -1,6 +1,13 @@
 <div class="p-8 mt-4">
     <div class="shadow p-6">
-        <h4>Create Employee Form</h4>
+        @if (isEdit == false) {
+            <h4>Create Employee</h4>
+
+        }
+        @else {
+            <h4>Update Employee Form</h4>
+
+        }
         <form [formGroup]="employeeForm" (ngSubmit)="save()">
             <div class="w-full flex flex-wrap">
                 <mat-form-field class="w-full">
@@ -38,7 +45,15 @@
                   </mat-form-field>
             </div>
             <div class="flex justify-center">
-                <button mat-raised-button color="warn" [disabled]="!employeeForm.valid">Save</button>
+                @if (isEdit) 
+                {
+                    <button mat-raised-button color="accent" [disabled]="!employeeForm.valid">Update</button>
+
+                }
+                @else {
+                    <button mat-raised-button color="warn" [disabled]="!employeeForm.valid">Add</button>
+
+                }
             </div>
            
         </form>

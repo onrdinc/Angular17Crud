@@ -14,5 +14,9 @@ export const routes: Routes = [
     {
         path:"create-employee",
         component:EmployeeFormComponent
+    },
+    {
+        path:"employee/:id",
+        component:EmployeeFormComponent
     }
 ];
